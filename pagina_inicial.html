@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Título da Página</title>
+  <!-- Você pode adicionar links para CSS aqui -->
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="icon" href="imagens_da_gio/giopalhaço.jpg" type="image/png">
+
+</head>
+
+  <style>
+   body {
+      text-align: center; /* Centraliza o texto */
+    }
+    body {
+      background-color: #121112;
+
+ h1 {  color: #ffffff; }
+
+ h2 {  color: #ffffff; }
+    
+ h3 {  color: #ffffff; }
+
+ p {  color: #ffffff;  }
+
+    }
+
+  </style>
+
+<body>
+
+
+</style>
+<header>
+
+    <h1>Seja bem-vinda é Feliz aniversário!!!!! </h1>
+
+  </header>
+
+   <main>
+
+    <section>
+      <h2>GIO para o seu aniversário eu proponho um desafio, eu criei esse site so para você, para que esse dia tão especial seja marcado pelo resto desua vida </h2>
+
+      <p>GIO você esta prestes a passar por uma caça ao """""""tesouro"""""" terão varios enigmas para vc resolver, eu espero que voçê se divirta, alem de que deu un trabalho do cão progamar tudo isso  .</p>
+      
+
+    </section>
+  
+</main>
+
+  <aside>
+
+    <h3> OBRIGADO  </h3>
+
+    <p> Antes de começar, de uma olhada melhor pelo site, talves voçê encontre algo legal hehe.</p>
+
+  </aside>
+
+
+  <!-- Você pode adicionar scripts JavaScript aqui -->
+  <script src="script.js"></script>
+
+
+
+
+
+  <h1>Clique aqui para começar o desafio </h1>
+
+  <button id="ativarSom">Ativar Som</button>
+<button onclick="irParaProximaPagina()">➡️ Começar!!!!!!</button>
+
+<script>
+  function irParaProximaPagina() {
+    window.location.href = "tutorial.html";
+  }
+</script>
+
+ <footer>
+
+
+
+  <img src="imagens_da_gio/biscoitodasorte.gif" alt="Imagem de um gato"> 
+  <img src="imagens_da_gio/caixadepresente.gif" alt="Imagem de um gato">
+
+
+
+
+
+
+    <p>© 2025 - Todos os direitos reservados a eu que criei o site hehehehe </p>
+
+     <p> ei psiu! aqui em baixo tem um mine game so pra vc matar o tempo enquanto aprecia essa bela musica </p>
+
+
+
+
+
+
+ <meta charset="UTF-8">
+  <title>Doce Generator</title>
+  <style>
+    body {
+      font-family: monospace;
+      color: #ffffff;
+      text-align: center;
+      padding: 40px;
+    }
+    .ascii {
+      white-space: pre;
+      font-size: 18px;
+      margin: 20px 0;
+    }
+    button {
+      font-family: monospace;
+      font-size: 16px;
+      padding: 10px;
+      margin: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍬 Doce Generator 🍬</h1>
+
+  <p>Doces: <span id="candies">0</span></p>
+  <p>Doces por segundo: <span id="cps">1</span></p>
+
+
+
+  <button onclick="clickCandy()">🍬 Pegar doce (clique)</button>
+
+
+
+
+  <div class="ascii">
+    (¯`·._.·(¯`·._.· Geração Automática ·._.·´¯)·._.·´¯)
+  </div>
+
+  <div>
+    <button onclick="buyUpgrade('garoto')">Comprar Caixa Garoto (💰 10 doces)</button><br>
+    <button onclick="buyUpgrade('cacau')">Comprar Cacau Show (💰 50 doces)</button><br>
+    <button onclick="buyUpgrade('choco70')">Comprar Chocolate 70% (💰 150 doces)</button><br>
+    <button onclick="buyUpgrade('nestle')">Comprar Nestlé Supremo (💰 500 doces)</button>
+  </div>
+
+  <script>
+    let candies = 0;
+    let candyPerSecond = 1;
+
+    const upgrades = {
+      garoto: { cost: 10, cps: 1, bought: false },
+      cacau: { cost: 50, cps: 5, bought: false },
+      choco70: { cost: 150, cps: 10, bought: false },
+      nestle: { cost: 500, cps: 30, bought: false }
+    };
+
+    function updateUI() {
+      document.getElementById("candies").textContent = Math.floor(candies);
+      document.getElementById("cps").textContent = candyPerSecond;
+    }
+
+    function clickCandy() {
+      candies += 1;
+      updateUI();
+    }
+
+    function buyUpgrade(type) {
+      const upgrade = upgrades[type];
+      if (!upgrade) return;
+
+      if (candies >= upgrade.cost && !upgrade.bought) {
+        candies -= upgrade.cost;
+        candyPerSecond += upgrade.cps;
+        upgrade.bought = true;
+        alert(`Você comprou: ${upgradeName(type)}!`);
+        updateUI();
+        disableButton(type);
+      } else if (upgrade.bought) {
+        alert("Você já comprou esse upgrade.");
+      } else {
+        alert("Doces insuficientes.");
+      }
+    }
+
+    function disableButton(type) {
+      const btnList = document.querySelectorAll("button");
+      btnList.forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(type)) {
+          btn.disabled = true;
+          btn.textContent += " ✅";
+        }
+      });
+    }
+
+    function upgradeName(type) {
+      switch (type) {
+
+        case 'garoto': return "Caixa de Bombons Garoto";
+        case 'cacau': return "Cacau Show";
+        case 'choco70': return "Chocolate 70%";
+        case 'nestle': return "Nestlé Supremo";
+      }
+    }
+
+    // Loop do jogo
+    setInterval(() => {
+      candies += candyPerSecond;
+      updateUI();
+    }, 1000); // 1 segundo
+
+    updateUI();
+  </script>
+
+
+
+
+
+
+
+
+
+  </footer>
+
+
+
+
+  <!-- Botão que o usuário deve clicar -->
+  
+
+  <!-- Áudio com autoplay e muted (silenciado por padrão) -->
+
+  <audio id="meuAudio" autoplay muted>
+
+    <source src="audio_do_site/Jiafeiplaylist.mp3" type="audio/mpeg">
+
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Controle de volume -->
+  <label for="volume">Volume:</label>
+  <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+
+  <script>
+    const audio = document.getElementById("meuAudio");
+    const botao = document.getElementById("ativarSom");
+    const volumeControl = document.getElementById("volume");
+
+    // Define volume inicial
+    audio.volume = 0.5;
+
+    // Remove o mute e toca o áudio ao clicar no botão
+    botao.addEventListener("click", () => {
+      audio.muted = false;
+      audio.play(); // força o play com som após o clique
+      botao.style.display = "none";
+    });
+
+    // Controla o volume
+    volumeControl.addEventListener("input", function() {
+      audio.volume = this.value;
+    });
+  </script>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>
